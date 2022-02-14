@@ -8,67 +8,24 @@ app.use(cors());
 
 app.use(express.json()); // When we want to be able to accept JSON.
 
-app.get("/api/compliment", (req, res) => {
-  const compliments = ["Gee, you're a smart cookie!",
-					 "Cool shirt!",
-					 "Your Javascript skills are stellar.",
-  ];
+const ctrl = require('./controller')
 
-  // choose random compliment
-  let randomIndex = Math.floor(Math.random() * compliments.length);
-  let randomCompliment = compliments[randomIndex];
+app.get("/api/compliment", ctrl.compliments)
 
-  res.status(200).send(randomCompliment);
-  
-});
+app.get("/api/fortune", ctrl.getFortune)
 
-const getFortune = app.get("/api/fortune", (req, res) => {
-  const fortunes = ['Believe it can be done!', 
-  'Courtesy is contagious!',
-  'At the touch of love everyone becomes a poet!',
-   'Disbelief destroys magic!',
-  ];
+app.post("/api/list", ctrl.createList)
 
-  let randomIndexFortune = Math.floor(Math.random() * fortunes.length);
-  let randomFortune = fortunes[randomIndexFortune];
+app.delete("/api/list/:id", ctrl.deleteList) 
 
-  res.status(200).send(randomFortune)
-
-  
-})
+// app.put("/api/list", ctrl.addList) 
 
 
-const createList = app.post("/api/list", (req, res) => {
-const list = [
-  ' stand up ',
-  ' take a walk ', 
-  ' get a drink of water ',
-  ' take a break from the screens ',
-  ' take a deep breath '
-  
-];
-res.status(200).send(list)
-console.log('list')
-})
 
 
-// I get errors when the code below runs so i have it not running at the moment I know I am not doing it right or missing something but Im just pretty stuck on this 
 
-// const deleteList = app.delete("/api/list/") (req,res => {
-  
-//   let index = list.findIndex(elem => elem.id === +req.params.id)
-//   list.splice(index,1)
-//   res.status(200).send(list)
-//   console.log(deleteList)
-// })
 
-// const addList = app.put("/api/list") (req, res => {
-//   let index = list.findIndex(elem => elem.id === +req.params.id)
-//   if(list[index]){
-//     res.status(200).send('uh oh you lost your a step')
-//   }
-  
-// })
+
 
 
 

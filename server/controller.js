@@ -1,9 +1,65 @@
-// const a
+const axios = require('axios')
 
 
-// module.exports ={
+module.exports = {
+     compliments: (req, res) => {
+        const compliments = ["Gee, you're a smart cookie!",
+                           "Cool shirt!",
+                           "Your Javascript skills are stellar.",
+        ];
+      
+        // choose random compliment
+        let randomIndex = Math.floor(Math.random() * compliments.length);
+        let randomCompliment = compliments[randomIndex];
+      
+        res.status(200).send(randomCompliment);
+        
+      },
+      getFortune: (req, res) => {
+        const fortunes = ['Believe it can be done!', 
+        'Courtesy is contagious!',
+        'At the touch of love everyone becomes a poet!',
+         'Disbelief destroys magic!',
+        ];
+      
+        let randomIndexFortune = Math.floor(Math.random() * fortunes.length);
+        let randomFortune = fortunes[randomIndexFortune];
+      
+        res.status(200).send(randomFortune)
+      
+        
+      },
+      createList: (req, res) => {
+        const list = [
+          ' stand up ',
+          ' take a walk ', 
+          ' get a drink of water ',
+          ' take a break from the screens ',
+          ' take a deep breath '
+          
+        ];
+        res.status(200).send(list)
+        console.log('list')
+        },
+        deleteList: (req,res) => {
+  
+          let index = list.findIndex(elem => elem.id === +req.params.id)
+          list.splice(index,1)
+          res.status(200).send(list)
+          console.log(deleteList)
+        },
+        // addList: (req, res => {
+        //   let index = list.findIndex(elem => elem.id === +req.params.id)
+        //   if(list[index]){
+        //     res.status(200).send('uh oh you lost your a step')
+        //   }
+          
+        // })
+
+
     
-// }
+}
+
 
 
 

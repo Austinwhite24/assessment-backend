@@ -1,3 +1,5 @@
+
+
 document.getElementById("complimentButton").onclick = function () {
     axios.get("http://localhost:4000/api/compliment/")
         .then(function (response) {
@@ -33,13 +35,20 @@ document.getElementById('list').onclick = function () {
 
 // I get errors when the code below runs so i have it not running at the moment I know I am not doing it right or missing something but Im just pretty stuck on this 
 
-// document.getElementById('delete').onclick = function () {
-//     axios.delete("http://localhost:4000/api/list/", )
-//     .then(function (response) {
-//       const data = response.data;
-//       alert(data);
-//     });
+
+// let deleteBtns = document.getElementById("delete")
+
+// for (let i=0; i < deleteBtns.clientHeight; i++) {
+//   deleteBtns[i].addEventListener("click", deleteList)
 // }
+
+document.getElementById('delete').onclick = function () {
+    axios.delete(`http://localhost:4000/api/list/${id}`, )
+    .then(function (response) {
+      const data = response.data;
+      alert(data);
+    });
+}
 
 
 // document.getElementById('updateId').onclick = function () {
