@@ -50,7 +50,7 @@ document.getElementById('delete').onclick = function () {
     });
 }
 
-
+// test
 // document.getElementById('updateId').onclick = function () {
 //     axios.put("http://localhost:4000/api/list/", )
 //     .then(function (response) {
