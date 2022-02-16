@@ -1,4 +1,5 @@
-const axios = require('axios')
+const list = require('./db.json')
+let globalId = 6
 
 
 module.exports = {
@@ -30,15 +31,22 @@ module.exports = {
         
       },
       createList: (req, res) => {
-        const list = [
-          ' stand up ',
-          ' take a walk ', 
-          ' get a drink of water ',
-          ' take a break from the screens ',
-          ' take a deep breath '
+        let {title} = req.body
+        let newList = {
+          id: globalId,
+          title
+        }
+        list.push(newList)
+        // const list = [
+        //   ' stand up ',
+        //   ' take a walk ', 
+        //   ' get a drink of water ',
+        //   ' take a break from the screens ',
+        //   ' take a deep breath '
           
-        ];
+        // ];
         res.status(200).send(list)
+        globalId++
         console.log('list')
         },
         deleteList: (req,res) => {
@@ -46,8 +54,8 @@ module.exports = {
           let index = list.findIndex(elem => elem.id === +req.params.id)
           list.splice(index,1)
           res.status(200).send(list)
-          console.log(deleteList)
-        },
+          // console.log(deleteList)
+        // },
         // addList: (req, res => {
         //   let index = list.findIndex(elem => elem.id === +req.params.id)
         //   if(list[index]){
@@ -56,10 +64,8 @@ module.exports = {
           
         // })
 
-
-    
+    }
 }
-
 
 
 
@@ -103,4 +109,4 @@ module.exports = {
 //             res.status(400).send('You broke something')
 //         }
 //     }
-// }
+      

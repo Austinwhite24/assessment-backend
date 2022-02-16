@@ -25,13 +25,17 @@ document.getElementById("complimentButton").onclick = function () {
     });
 }
 
-document.getElementById('list').onclick = function () {
-    axios.post("http://localhost:4000/api/list/", )
+document.getElementById('addToList').onclick = function () {
+    axios.post("http://localhost:4000/api/list/" )
     .then(function (response) {
       const data = response.data;
       alert(data);
+      console.log("lol this is hard")
+
     });
 }
+
+
 
 // I get errors when the code below runs so i have it not running at the moment I know I am not doing it right or missing something but Im just pretty stuck on this 
 
@@ -43,7 +47,7 @@ document.getElementById('list').onclick = function () {
 // }
 
 document.getElementById('delete').onclick = function () {
-    axios.delete(`http://localhost:4000/api/list/${id}`, )
+    axios.delete(`http://localhost:4000/api/list/:id` )
     .then(function (response) {
       const data = response.data;
       alert(data);
