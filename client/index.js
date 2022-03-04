@@ -1,3 +1,21 @@
+const form = document.querySelector('#formId')
+
+function submitHandler(e) {
+  e.preventDefault()
+
+  let title = document.querySelector('#enterList')
+  
+
+  let bodyObj = {
+      title: title.value,
+    
+  }
+
+  createList(bodyObj)
+
+  title.value = ''
+}
+
 
 
 document.getElementById("complimentButton").onclick = function () {
@@ -24,16 +42,20 @@ document.getElementById("complimentButton").onclick = function () {
       alert(data);
     });
 }
-
-document.getElementById('addToList').onclick = function () {
-    axios.post("http://localhost:4000/api/list/" )
+form.addEventListener("submit", submitHandler)
+const creatList = (bodyObject) => {
+  let body = bodyObject
+    axios.post("http://localhost:4000/api/list/", body)
     .then(function (response) {
       const data = response.data;
-      alert(data);
+      const count = response.data.length -1
+      alert(data[count].title);
       console.log("lol this is hard")
+      console.log(data)
 
     });
 }
+
 
 
 

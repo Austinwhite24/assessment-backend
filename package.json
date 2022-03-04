@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.17.2"
+    "express": "^4.17.3"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,6 @@
     "url": "https://github.com/Austinwhite24/assessment-backend/issues"
   },
   "homepage": "https://github.com/Austinwhite24/assessment-backend#readme",
+  "devDependencies": {},
   "description": ""
 }
